@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Expanding_Image_Zoom" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1965.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KdP-DU-r9Q">
+                                <rect key="frame" x="236" y="63" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KdP-DU-r9Q" secondAttribute="height" multiplier="1:1" id="GNl-fo-pH2"/>
+                                    <constraint firstAttribute="width" constant="128" id="mzk-t3-BrF"/>
+                                </constraints>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oSW-3N-hRj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_1965.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="eON-vN-0UH">
+                                        <rect key="frame" x="172" y="172" width="256" height="256"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="256" id="I6o-1Y-sF1"/>
+                                            <constraint firstAttribute="width" secondItem="eON-vN-0UH" secondAttribute="height" multiplier="1:1" id="eCv-X3-fmG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="KCB-NX-C8s" appends="YES" id="kUH-1Q-NzH"/>
+                                            <outletCollection property="gestureRecognizers" destination="9fK-YI-QXq" appends="YES" id="nf1-rt-kbh"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="eON-vN-0UH" firstAttribute="centerX" secondItem="oSW-3N-hRj" secondAttribute="centerX" id="7MM-1i-btx"/>
+                                    <constraint firstItem="eON-vN-0UH" firstAttribute="centerY" secondItem="oSW-3N-hRj" secondAttribute="centerY" id="TvK-ik-kf5"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KdP-DU-r9Q" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="RNN-0i-Fqk"/>
+                            <constraint firstItem="KdP-DU-r9Q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TSN-uY-xfl"/>
+                            <constraint firstItem="oSW-3N-hRj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="WDD-d7-WVB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oSW-3N-hRj" secondAttribute="trailing" constant="-20" id="d8w-FL-Cno"/>
+                            <constraint firstItem="oSW-3N-hRj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="tct-Cq-Bib"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oSW-3N-hRj" secondAttribute="bottom" id="zDu-81-AUC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bigPicture" destination="eON-vN-0UH" id="1ea-gW-ke8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="9fK-YI-QXq">
+                    <connections>
+                        <action selector="processPan:" destination="BYZ-38-t0r" id="bDf-O4-Bkq"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="DVY-BC-jI5"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="KCB-NX-C8s">
+                    <connections>
+                        <action selector="processPinch:" destination="BYZ-38-t0r" id="raX-ga-lEG"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="ApB-wr-wSo"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="305" y="429"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="IMG_1965.jpg" width="2739" height="2739"/>
+    </resources>
+</document>
