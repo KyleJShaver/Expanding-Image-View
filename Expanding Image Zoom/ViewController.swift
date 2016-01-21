@@ -49,7 +49,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             tempFrame = bigPicture.frame
             bigPicture.frame = smallPicture.frame
             bigPicture.alpha = 1
-            UIView.animateWithDuration(1.0) { () -> Void in
+            UIView.animateWithDuration(0.5) { () -> Void in
                 self.bigPicture.frame = self.tempFrame!
                 self.faderBG.alpha = 1
             }
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func processFaderTap(sender: UITapGestureRecognizer) {
-        UIView.animateWithDuration(1.0, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.faderBG.alpha = 0
             self.bigPicture.frame = self.smallPicture.frame
             }, completion: { (complete: Bool) -> Void in

@@ -45,6 +45,7 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="9fK-YI-QXq" appends="YES" id="nf1-rt-kbh"/>
                                     <outletCollection property="gestureRecognizers" destination="KCB-NX-C8s" appends="YES" id="kUH-1Q-NzH"/>
+                                    <outletCollection property="gestureRecognizers" destination="Wk9-Ne-hAl" appends="YES" id="2Yt-uv-pjK"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -87,6 +88,11 @@
                 <tapGestureRecognizer id="QaB-U5-zzV">
                     <connections>
                         <action selector="processFaderTap:" destination="BYZ-38-t0r" id="oIV-gb-kPr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Wk9-Ne-hAl">
+                    <connections>
+                        <action selector="processFaderTap:" destination="BYZ-38-t0r" id="NpR-11-Bzi"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
