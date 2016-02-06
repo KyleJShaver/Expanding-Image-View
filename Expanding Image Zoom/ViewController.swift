@@ -62,6 +62,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             self.bigPicture.frame = self.smallPicture.frame
             }, completion: { (complete: Bool) -> Void in
                 if complete {
+                    self.bigPicture.transform = CGAffineTransformIdentity
                     self.bigPicture.alpha = 0
                     self.bigPicture.frame = self.tempFrame!
                     self.tempFrame = nil
