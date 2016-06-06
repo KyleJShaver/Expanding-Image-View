@@ -14,7 +14,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var faderBG : UIView!
     @IBOutlet weak var smallPicture: UIImageView!
     
-    var tempFrame: CGRect?
+    var bigPictureSize: CGSize!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,11 +46,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBAction func processTap(sender: UITapGestureRecognizer) {
         if sender.view! == smallPicture {
-            tempFrame = bigPicture.frame
-            bigPicture.frame = smallPicture.frame
+            if bigPictureSize == nil {
+                bigPictureSize = bigPicture.frame.size
+                self.bigPicture.frame = self.smallPicture.frame
+            }
             bigPicture.alpha = 1
             UIView.animateWithDuration(0.5) { () -> Void in
-                self.bigPicture.frame = self.tempFrame!
+                self.bigPicture.frame.size = self.bigPictureSize
+                self.bigPicture.center = self.faderBG.center
                 self.faderBG.alpha = 1
             }
         }
@@ -64,8 +67,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 if complete {
                     self.bigPicture.transform = CGAffineTransformIdentity
                     self.bigPicture.alpha = 0
-                    self.bigPicture.frame = self.tempFrame!
-                    self.tempFrame = nil
+                    self.bigPicture.layer.anchorPoint = CGPointMake(0.5, 0.5)
                 }
         })
     }
