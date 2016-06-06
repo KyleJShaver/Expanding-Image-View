@@ -68,6 +68,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                     self.bigPicture.transform = CGAffineTransformIdentity
                     self.bigPicture.alpha = 0
                     self.bigPicture.layer.anchorPoint = CGPointMake(0.5, 0.5)
+                    self.bigPicture.frame = self.smallPicture.frame
                 }
         })
     }
